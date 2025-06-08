@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Google Classroom</title>
+  <link id="favicon" rel="icon" type="image/x-icon" href="https://ssl.gstatic.com/classroom/favicon.png">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      background-color: black;
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <iframe
+    src="https://game.spynick.com/"
+    allow="fullscreen"
+    sandbox="allow-scripts allow-same-origin"
+  ></iframe>
+
+  <script>
+    // Set custom title and favicon for tab cloak
+    const cloakedTitle = "Google Classroom";
+    const cloakedFavicon = "https://ssl.gstatic.com/classroom/favicon.png";
+
+    // Apply tab cloak
+    document.title = cloakedTitle;
+    const faviconElement = document.getElementById('favicon');
+    if (faviconElement) {
+      faviconElement.href = cloakedFavicon;
+    } else {
+      const newLink = document.createElement('link');
+      newLink.rel = 'icon';
+      newLink.type = 'image/x-icon';
+      newLink.href = cloakedFavicon;
+      newLink.id = 'favicon';
+      document.head.appendChild(newLink);
+    }
+
+    // OPTIONAL: Switch back to original when mouse leaves tab
+    const originalTitle = "Shadow Game";
+    window.addEventListener("blur", () => {
+      document.title = cloakedTitle;
+    });
+    window.addEventListener("focus", () => {
+      document.title = cloakedTitle;
+    });
+  </script>
+</body>
+</html>
+
